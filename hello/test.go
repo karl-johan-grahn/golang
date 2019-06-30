@@ -2,11 +2,11 @@ package main
 
 import (
   "bytes"
-	"fmt"
+  "fmt"
   "io/ioutil"
   "encoding/json"
   "log"
-	"net/http"
+  "net/http"
 )
 
 const (
@@ -22,11 +22,11 @@ func main() {
   http.HandleFunc("/online", make_online)
   http.HandleFunc("/deregister", deregister_service)
   http.HandleFunc("/chuck", get_joke)
-	log.Fatal(http.ListenAndServe(fmt.Sprintf(":%d", defaultPort), nil))
+  log.Fatal(http.ListenAndServe(fmt.Sprintf(":%d", defaultPort), nil))
 }
 
 func handler(w http.ResponseWriter, r *http.Request) {
-	fmt.Fprintf(w, "Hello, you've requested: %q\n", r.URL.Path)
+  fmt.Fprintf(w, "Hello, you've requested: %q\n", r.URL.Path)
 }
 
 func register_service(w http.ResponseWriter, r *http.Request) {
